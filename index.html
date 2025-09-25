@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TARNTIPS Vip NBA - Consultoria de Apostas Profissional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    <style>
+        :root {
+            --primary: #ff6b00;
+            --primary-dark: #e55a00;
+            --secondary: #0055ff;
+            --dark: #0a0e17;
+            --darker: #05070c;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --success: #28a745;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+
+        #abas {
+            padding: 10px 0;
+        }
+
+        h1, h2, h3, h4 {
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        h3 {
+            font-size: 1.8rem;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 50px;
+            box-shadow: 0 5px 15px rgba(255, 107, 0, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 107, 0, 0.5);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(45deg, var(--secondary), #0040cc);
+            box-shadow: 0 5px 15px rgba(0, 85, 255, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            box-shadow: 0 10px 25px rgba(0, 85, 255, 0.5);
+        }
+        
+        .text-primary {
+            color: var(--primary);
+        }
+        
+        .text-secondary {
+            color: var(--secondary);
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60%;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        header {
+            background: linear-gradient(rgba(10, 14, 23, 0.9), rgba(10, 14, 23, 0.7)), url('https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1790&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+            z-index: 2;
+            position: relative;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+        
+        .logo span {
+            color: var(--primary);
+            -webkit-text-fill-color: var(--primary);
+        }
+        
+        .header-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .header-content p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .stat-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            min-width: 180px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+        
+        .stat-text {
+            font-size: 1rem;
+            color: var(--light);
+        }
+        
+        .abas-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .abas-navegacao {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--darker);
+        }
+        
+        .aba-btn {
+            background: transparent;
+            color: var(--light);
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .aba-btn:hover {
+            color: var(--primary);
+        }
+        
+        .aba-btn.ativa {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+        }
+        
+        .conteudo-aba {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .conteudo-aba.ativa {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        #sobre {
+            background-color: var(--darker);
+        }
+        
+        .sobre-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .sobre-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .sobre-image {
+            flex: 1;
+            min-width: 200px;
+            max-width: 350px;
+            text-align: center;
+            position: relative;
+            margin-top: 50px;
+            margin-bottom: 20px;
+        }
+        
+        .sobre-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .sobre-image:after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            right: 1px;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--primary);
+            border-radius: 10px;
+        }
+        
+        #metodologia {
+            background-color: var(--dark);
+        }
+        
+        .metodologia-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .metodologia-card {
+            background: var(--darker);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .metodologia-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .metodologia-card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        #planos {
+            background-color: var(--darker);
+        }
+        
+        .planos-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .plano-card {
+            background: var(--dark);
+            border-radius: 10px;
+            padding: 40px 30px;
+            text-align: center;
+            flex: 1;
+            min-width: 300px;
+            max-width: 350px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 2px solid transparent;
+            transition: all 0.3s ease, border-color 0.3s ease; /* Adicionado transição para border-color */
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .plano-card.selecionado {
+            border-color: var(--primary);
+        }
+        
+        .plano-card.popular {
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+        
+        .plano-card.popular:before {
+            content: 'MAIS POPULAR';
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--primary);
+            color: white;
+            padding: 5px 30px;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .plano-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .plano-card.popular:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+        
+        .plano-nome {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .plano-preco {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--light);
+        }
+        
+        .plano-preco span {
+            font-size: 1rem;
+            color: var(--gray);
+        }
+        
+        .plano-vantagens {
+            list-style: none;
+            margin: 30px 0;
+            text-align: left;
+        }
+        
+        .plano-vantagens li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .plano-vantagens li:before {
+            content: '\f00c';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--success);
+        }
+        
+        #depoimentos {
+            background-color: var(--dark);
+        }
+        
+        .depoimentos-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        
+        .depoimento-card {
+            background: var(--darker);
+            padding: 60px;
+            border-radius: 10px;
+            max-width: 350px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        
+        .depoimento-card:before {
+            content: '\f10d';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 2rem;
+            color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .depoimento-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .depoimento-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .depoimento-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        
+        #faq {
+            background-color: var(--darker);
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 15px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .faq-pergunta {
+            background: var(--dark);
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+        
+        .faq-resposta {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-item.ativo .faq-resposta {
+            padding: 20px;
+            max-height: 500px;
+        }
+        
+        .faq-pergunta i {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.ativo .faq-pergunta i {
+            transform: rotate(180deg);
+        }
+        
+        #cta {
+            background: linear-gradient(rgba(10, 14, 23, 0.9), rgba(10, 14, 23, 0.9)), url('https://images.unsplash.com/photo-1577471488278-16eec37ffcc2?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            text-align: center;
+        }
+        
+        #cta h2 {
+            margin-bottom: 30px;
+        }
+        
+        .garantia {
+            font-size: 1.2rem;
+            margin: 20px 0;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        footer {
+            background-color: var(--darker);
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-links {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-links h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .header-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .sobre-content {
+                flex-direction: column;
+            }
+            
+            .plano-card.popular {
+                transform: scale(1);
+            }
+            
+            .plano-card.popular:hover {
+                transform: translateY(-10px);
+            }
+            
+            .abas-navegacao {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .aba-btn {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div style="justify-items: center; width: 100%;">
+                    <div class="sobre-image">
+                        <img src="tarn2.jpeg" alt="Analista TARNTIPS">
+                    </div>
+                </div>
+                <h1>Consultoria de Apostas <span class="text-primary">Profissional</span> para a NBA</h1>
+                <p>Junte-se à nossa comunidade VIP e tenha acesso às melhores análises e tips para maximizar seus lucros nas apostas da NBA.</p>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number">85%</span>
+                        <span class="stat-text">Taxa de Acerto</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">+500</span>
+                        <span class="stat-text">Clientes Satisfeitos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">+200K</span>
+                        <span class="stat-text">Em Lucros (R$)</span>
+                    </div>
+                </div>
+                
+                <a href="#aba-planos" class="btn btn-mudar-aba" data-aba="planos">Quero Me Tornar VIP</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="abas">
+        <div class="abas-container">
+            <div class="abas-navegacao">
+                <button class="aba-btn ativa" data-aba="sobre">Sobre Nós</button>
+                <button class="aba-btn" data-aba="metodologia">Metodologia</button>
+                <button class="aba-btn" data-aba="planos">Planos VIP</button>
+                <button class="aba-btn" data-aba="depoimentos">Depoimentos</button>
+                <button class="aba-btn" data-aba="faq">Perguntas Frequentes</button>
+            </div>
+            
+            <div class="conteudo-abas">
+                <div id="aba-sobre" class="conteudo-aba ativa">
+                    <h2><span class="section-title">Sobre a TarnTips</span></h2>
+                    <div class="sobre-content">
+                        <div class="sobre-text">
+                            <p>A <span class="text-primary">TARNTIPS Vip NBA</span> é a consultoria de apostas mais confiável e lucrativa do mercado, especializada exclusivamente na NBA.</p>
+                            <p>Nossa equipe de analistas especializados combina conhecimento profundo do basquete norte-americano com ferramentas de análise de dados avançadas para identificar as melhores oportunidades de apostas.</p>
+                            <p>Com mais de 5 anos de experiência no mercado, desenvolvemos uma metodologia única que já ajudou centenas de apostadores a transformarem seu hobby em uma fonte de renda consistente.</p>
+                            <p>Não importa se você é um iniciante ou um apostador experiente, nossos planos são adaptados para atender suas necessidades específicas e maximizar seus lucros.</p>
+                            <a href="#aba-planos" class="btn btn-mudar-aba" data-aba="planos">Conhecer Planos</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="aba-metodologia" class="conteudo-aba">
+                    <h2><span class="section-title">Nossa Metodologia</span></h2>
+                    <div class="metodologia-grid">
+                        <div class="metodologia-card">
+                            <i class="fas fa-basketball-ball"></i>
+                            <h3>Análise Técnica</h3>
+                            <p>Avaliamos estatísticas avançadas, desempenho recente, confrontos diretos e condições das equipes.</p>
+                        </div>
+                        <div class="metodologia-card">
+                            <i class="fas fa-chart-line"></i>
+                            <h3>Análise de Mercado</h3>
+                            <p>Monitoramos as odds em tempo real para identificar value bets com maior probabilidade de sucesso.</p>
+                        </div>
+                        <div class="metodologia-card">
+                            <i class="fas fa-users"></i>
+                            <h3>Informações Exclusivas</h3>
+                            <p>Acesso a informações privilegiadas sobre lesões, escalações e condições das equipes.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="aba-planos" class="conteudo-aba">
+                    <h2><span class="section-title">Nossos Planos VIP</span></h2>
+                    <div class="planos-container">
+                        <div class="plano-card" id="aba-plano-iniciante" onclick="selecionarPlano('iniciante', 100)">
+                            <h3 class="plano-nome">Iniciante</h3>
+                            <div class="plano-preco">R$ 100<span>/mês</span></div>
+                            <ul class="plano-vantagens">
+                                <li>5-7 tips por semana</li>
+                                <li>Acesso ao grupo VIP no Telegram</li>
+                                <li>Análises simplificadas</li>
+                                <li>Suporte por email</li>
+                            </ul>
+                            <a href="#formulario" class="btn">Assinar Agora</a>
+                        </div>
+                        
+                        <div class="plano-card popular" id="aba-plano-profissional" onclick="selecionarPlano('profissional',200)">
+                            <h3 class="plano-nome">Profissional</h3>
+                            <div class="plano-preco">R$ 200<span>/mês</span></div>
+                            <ul class="plano-vantagens">
+                                <li>10-12 tips por semana</li>
+                                <li>Acesso ao grupo VIP no Telegram</li>
+                                <li>Análises detalhadas</li>
+                                <li>Suporte prioritário</li>
+                                <li>Planilha de gestão de banca</li>
+                                <li>Webinars mensais</li>
+                            </ul>
+                            <a href="#formulario" class="btn">Assinar Agora</a>
+                        </div>
+                        
+                        <div class="plano-card" id="aba-plano-premium" onclick="selecionarPlano('premium', 300)">
+                            <h3 class="plano-nome">Premium</h3>
+                            <div class="plano-preco">R$ 300<span>/mês</span></div>
+                            <ul class="plano-vantagens">
+                                <li>15+ tips por semana</li>
+                                <li>Acesso ao grupo VIP no Telegram</li>
+                                <li>Análises premium com odds recomendadas</li>
+                                <li>Suporte 24/7</li>
+                                <li>Planilha de gestão de banca</li>
+                                <li>Webinars semanais</li>
+                                <li>Mentoria individual mensal</li>
+                            </ul>
+                            <a href="#formulario" class="btn">Assinar Agora</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="aba-depoimentos" class="conteudo-aba">
+                    <h2><span class="section-title">O Que Nossos Clientes Dizem</span></h2>
+                    <div class="depoimentos-container">
+                        <div class="depoimento-card">
+                            <div class="depoimento-text">
+                                "Desde que assinei a TARNTIPS, minha rentabilidade nas apostas aumentou em mais de 300%. As análises são precisas e o suporte é excelente!"
+                            </div>
+                            <div class="depoimento-author">
+                                <div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="depoimento-card">
+                            <div class="depoimento-text">
+                                "A metodologia da TARNTIPS é fantástica. Finalmente encontrei uma consultoria séria e confiável para apostas na NBA."
+                            </div>
+                            <div class="depoimento-author">
+                                <div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="depoimento-card">
+                            <div class="depoimento-text">
+                                "O plano Professional superou todas as minhas expectativas. Em 3 meses já obtive um retorno 5x maior que o investimento."
+                            </div>
+                            <div class="depoimento-author">
+                                <div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="aba-faq" class="conteudo-aba">
+                    <h2><span class="section-title">Perguntas Frequentes</span></h2>
+                    <div class="faq-container">
+                        <div class="faq-item">
+                            <div class="faq-pergunta">
+                                Como receberei as tips?
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-resposta">
+                                <p>Todas as tips são enviadas através do nosso grupo VIP no Telegram, com antecedência suficiente para que você possa aproveitar as melhores odds.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-pergunta">
+                                Qual é a taxa de acerto?
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-resposta">
+                                <p>Nossa taxa de acerto média é de 75-85%, variando de acordo com a fase da temporada e o plano escolhido.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-pergunta">
+                                Há garantia de lucro?
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-resposta">
+                                <p>Não podemos garantir lucros, pois apostas envolvem riscos. No entanto, oferecemos uma garantia de satisfação de 7 dias para que você possa testar nosso serviço.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-pergunta">
+                                Posso cancelar a qualquer momento?
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-resposta">
+                                <p>Sim, todos os planos são mensais e você pode cancelar a qualquer momento sem multa.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta">
+        <div class="container">
+            <h2>Junte-se à Nossa Comunidade VIP Agora!</h2>
+            <p>Não perca a oportunidade de transformar suas apostas na NBA com a consultoria mais confiável do mercado.</p>
+            <div class="garantia">
+                <i class="fas fa-shield-alt"></i> Garantia de 7 dias ou seu dinheiro de volta
+            </div>
+            <a href="#aba-planos" class="btn btn-mudar-aba" data-aba="planos">Quero Me Tornar VIP</a>
+        </div>
+    </section>
+
+    <section id="formulario" style="background-color: var(--darker); padding: 80px 0;">
+        <div class="container">
+            <h2><span class="section-title">Finalizar Assinatura</span></h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 50px; align-items: center;">
+                <div style="flex: 1; min-width: 300px;">
+                    <h3>Escolha seu Plano</h3>
+                    <div class="planos-container" style="justify-content: flex-start;">
+                        <div class="plano-card" onclick="selecionarPlano('iniciante',100)" id="plano-iniciante" style="cursor: pointer;">
+                            <h3 class="plano-nome">Iniciante</h3>
+                            <div class="plano-preco">R$ 100<span>/mês</span></div>
+                            <ul class="plano-vantagens">
+                                <li>5-7 tips por semana</li>
+                                <li>Acesso ao grupo VIP no Telegram</li>
+                                <li>Análises simplificadas</li>
+                                <li>Suporte por email</li>
+                            </ul>
+                        </div>
+                        <div class="plano-card popular" onclick="selecionarPlano('profissional', 200)" id="plano-profissional" style="cursor: pointer;">
+                            <h3 class="plano-nome">Profissional</h3>
+                            <div class="plano-preco">R$ 200<span>/mês</span></div>
+                            <ul class="plano-vantagens">
+                                <li>10-12 tips por semana</li>
+                                <li>Acesso ao grupo VIP no Telegram</li>
+                                <li>Análises detalhadas</li>
+                                <li>Suporte prioritário</li>
+                                <li>Planilha de gestão de banca</li>
+                                <li>Webinars mensais</li>
+                            </ul>
+                        </div>
+                        <div class="plano-card" onclick="selecionarPlano('premium', 300)" id="plano-premium" style="cursor: pointer;">
+                            <h3 class="plano-nome">Premium</h3>
+                            <div class="plano-preco">R$ 300<span>/mês</span></div>
+                            <ul class="plano-vantagens">
+                                <li>15+ tips por semana</li>
+                                <li>Acesso ao grupo VIP no Telegram</li>
+                                <li>Análises premium com odds recomendadas</li>
+                                <li>Suporte 24/7</li>
+                                <li>Planilha de gestão de banca</li>
+                                <li>Webinars semanais</li>
+                                <li>Mentoria individual mensal</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <p><strong>Plano Selecionado:</strong> <span id="plano-selecionado-texto">Nenhum</span></p>
+                        <p><strong>Valor:</strong> R$ <span id="valor-selecionado">0</span>/mês</p>
+                    </div>
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <h3>Seus Dados</h3>
+                    <form id="form-pagamento" style="background: var(--dark); padding: 30px; border-radius: 10px;">
+                        <div style="margin-bottom: 20px;">
+                            <label for="nome" style="display: block; margin-bottom: 5px;">Nome Completo</label>
+                            <input type="text" id="nome" name="nome" required style="width: 100%; padding: 12px; border-radius: 5px; border: 1px solid #444; background: #1a1f2e; color: white;">
+                        </div>
+                        <div style="margin-bottom: 20px;">
+                            <label for="email" style="display: block; margin-bottom: 5px;">E-mail</label>
+                            <input type="email" id="email" name="email" required style="width: 100%; padding: 12px; border-radius: 5px; border: 1px solid #444; background: #1a1f2e; color: white;">
+                        </div>
+                        <div style="margin-bottom: 20px;">
+                            <label for="telefone" style="display: block; margin-bottom: 5px;">Telefone (WhatsApp)</label>
+                            <input type="tel" id="telefone" name="telefone" required style="width: 100%; padding: 12px; border-radius: 5px; border: 1px solid #444; background: #1a1f2e; color: white;">
+                        </div>
+                        <div style="margin-bottom: 30px;">
+                            <p><i class="fas fa-lock"></i> Seus dados estão protegidos. Pagamento processado por Mercado Pago.</p>
+                            <p><i class="fas fa-check"></i> Ao confirmar sua assinatura, você concorda com os Termos de Uso e autoriza TARNTIPS a cobrar futuros pagamentos de acordo com seus termos. Você pode cancelar a renovação automática da sua assinatura a qualquer</p>
+                            
+                        </div>
+                        <div id="botao-mercado-pago"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="#aba-sobre" class="btn-mudar-aba" data-aba="sobre">Sobre Nós</a></li>
+                        <li><a href="#aba-metodologia" class="btn-mudar-aba" data-aba="metodologia">Metodologia</a></li>
+                        <li><a href="#aba-planos" class="btn-mudar-aba" data-aba="planos">Planos</a></li>
+                        <li><a href="#aba-depoimentos" class="btn-mudar-aba" data-aba="depoimentos">Depoimentos</a></li>
+                        <li><a href="#aba-faq" class="btn-mudar-aba" data-aba="faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Contato</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> contato@tarntips.com</li>
+                        <li><i class="fas fa-phone"></i> (11) 99999-9999</li>
+                        <li><i class="fab fa-telegram"></i> Telegram: @tarntips</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2023 TARNTIPS Vip NBA. Todos os direitos reservados.</p>
+                <p>As apostas envolvem risco. Jogue com responsabilidade. Este site não é afiliado a nenhuma casa de apostas.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mp = new MercadoPago('APP_USR-553910ac-ad25-431f-8f13-1c4e2b816da5', {
+            locale: 'pt-BR'
+        });
+
+        let planoSelecionado = {
+            nome: 'Nenhum',
+            valor: 0
+        };
+
+        function selecionarPlano(plano, valor) {
+            // Atualizar informações do plano selecionado
+            planoSelecionado = {
+                nome: plano.charAt(0).toUpperCase() + plano.slice(1),
+                valor: valor
+            };
+
+            document.getElementById('plano-selecionado-texto').textContent = planoSelecionado.nome;
+            document.getElementById('valor-selecionado').textContent = valor.toFixed(2).replace('.', ',');
+
+            // Remover classe 'selecionado' de todos os planos em ambas as seções
+            document.querySelectorAll('.plano-card').forEach(card => {
+                card.classList.remove('selecionado');
+                card.style.borderColor = 'transparent';
+            });
+
+            // Adicionar classe 'selecionado' ao plano clicado em ambas as seções
+            const planoClicadoFormulario = document.getElementById(`plano-${plano}`);
+            const planoClicadoAba = document.getElementById(`aba-plano-${plano}`);
+            if (planoClicadoFormulario) {
+                planoClicadoFormulario.classList.add('selecionado');
+                planoClicadoFormulario.style.borderColor = 'var(--primary)';
+            }
+            if (planoClicadoAba) {
+                planoClicadoAba.classList.add('selecionado');
+                planoClicadoAba.style.borderColor = 'var(--primary)';
+            }
+
+            // Atualizar botão de pagamento
+            atualizarBotaoMercadoPago();
+        }
+
+        async function atualizarBotaoMercadoPago() {
+            if (planoSelecionado.valor === 0) {
+                document.getElementById('botao-mercado-pago').innerHTML = '<p style="color: var(--primary);">Selecione um plano para continuar</p>';
+                return;
+            }
+
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const telefone = document.getElementById('telefone').value;
+
+            try {
+                const response = await fetch('https://your-backend-url/api/create_preference', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer APP_USR-1805350478906644-092510-72c157436174123a1d1e3c1a52f0bc0f-2708292305'
+                    },
+                    body: JSON.stringify({
+                        items: [
+                            {
+                                title: `Plano ${planoSelecionado.nome} - TARNTIPS Vip NBA`,
+                                unit_price: planoSelecionado.valor,
+                                quantity: 1,
+                                currency_id: 'BRL'
+                            }
+                        ],
+                        payer: {
+                            name: nome,
+                            email: email,
+                            phone: {
+                                number: telefone
+                            }
+                        },
+                        back_urls: {
+                            success: 'https://your-site.com/success',
+                            failure: 'https://your-site.com/failure',
+                            pending: 'https://your-site.com/pending'
+                        },
+                        auto_return: 'approved'
+                    })
+                });
+
+                const data = await response.json();
+                const preferenceId = data.id;
+
+                document.getElementById('botao-mercado-pago').innerHTML = '';
+                mp.bricks().create('wallet', 'botao-mercado-pago', {
+                    initialization: {
+                        preferenceId: preferenceId
+                    },
+                    customization: {
+                        texts: {
+                            action: 'subscribe',
+                            valueProp: 'security_details'
+                        }
+                    }
+                });
+            } catch (error) {
+                console.error('Erro ao criar preferência:', error);
+                document.getElementById('botao-mercado-pago').innerHTML = '<p style="color: red;">Erro ao processar pagamento. Tente novamente.</p>';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const abasBtns = document.querySelectorAll('.aba-btn');
+            const conteudosAbas = document.querySelectorAll('.conteudo-aba');
+            
+            abasBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const abaAlvo = btn.getAttribute('data-aba');
+                    
+                    abasBtns.forEach(b => b.classList.remove('ativa'));
+                    conteudosAbas.forEach(conteudo => conteudo.classList.remove('ativa'));
+                    
+                    btn.classList.add('ativa');
+                    document.getElementById(`aba-${abaAlvo}`).classList.add('ativa');
+                });
+            });
+            
+            document.querySelectorAll('.btn-mudar-aba').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const abaAlvo = this.getAttribute('data-aba');
+                    
+                    abasBtns.forEach(b => b.classList.remove('ativa'));
+                    conteudosAbas.forEach(conteudo => conteudo.classList.remove('ativa'));
+                    
+                    document.querySelector(`.aba-btn[data-aba="${abaAlvo}"]`).classList.add('ativa');
+                    document.getElementById(`aba-${abaAlvo}`).classList.add('ativa');
+                    
+                    document.getElementById('abas').scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+            
+            document.querySelectorAll('.faq-pergunta').forEach(pergunta => {
+                pergunta.addEventListener('click', () => {
+                    const item = pergunta.parentElement;
+                    item.classList.toggle('ativo');
+                });
+            });
+            
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    if (!this.classList.contains('btn-mudar-aba')) {
+                        e.preventDefault();
+                        
+                        const targetId = this.getAttribute('href');
+                        if(targetId === '#') return;
+                        
+                        const targetElement = document.querySelector(targetId);
+                        if(targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+            
+            function animateStats() {
+                const statElements = document.querySelectorAll('.stat-number');
+                const speeds = [50, 70, 40];
+                
+                statElements.forEach((stat, index) => {
+                    const target = parseInt(stat.textContent);
+                    let current = 0;
+                    const increment = target / 50;
+                    
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            stat.textContent = target + (index === 2 ? 'K' : '%');
+                            clearInterval(timer);
+                        } else {
+                            stat.textContent = Math.floor(current) + (index === 2 ? 'K' : '%');
+                        }
+                    }, speeds[index]);
+                });
+            }
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateStats();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            observer.observe(document.querySelector('.stats'));
+
+            document.getElementById('form-pagamento').addEventListener('input', atualizarBotaoMercadoPago);
+        });
+    </script>
+</body>
+</html>
